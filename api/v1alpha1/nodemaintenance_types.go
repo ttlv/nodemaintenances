@@ -23,8 +23,8 @@ import (
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
 
-// NodeMaintenaceSpec defines the desired state of NodeMaintenace
-type NodeMaintenaceSpec struct {
+// NodeMaintenanceSpec defines the desired state of NodeMaintenance
+type NodeMaintenanceSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 	NodeName string       `json:"nodeName"`
@@ -32,8 +32,8 @@ type NodeMaintenaceSpec struct {
 	Services SpecServices `json:"services"`
 }
 
-// NodeMaintenaceStatus defines the observed state of NodeMaintenace
-type NodeMaintenaceStatus struct {
+// NodeMaintenanceStatus defines the observed state of NodeMaintenance
+type NodeMaintenanceStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 	Services   StatusServices `json:"services"`
@@ -43,18 +43,18 @@ type NodeMaintenaceStatus struct {
 
 // +kubebuilder:object:root=true
 
-// NodeMaintenace is the Schema for the nodemaintenaces API
+// NodeMaintenance is the Schema for the NodeMaintenances API
 type NodeMaintenance struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   NodeMaintenaceSpec   `json:"spec,omitempty"`
-	Status NodeMaintenaceStatus `json:"status,omitempty"`
+	Spec   NodeMaintenanceSpec   `json:"spec,omitempty"`
+	Status NodeMaintenanceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
 
-// NodeMaintenaceList contains a list of NodeMaintenace
+// NodeMaintenanceList contains a list of NodeMaintenance
 type NodeMaintenanceList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
