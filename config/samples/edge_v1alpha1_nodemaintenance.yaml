@@ -1,0 +1,28 @@
+apiVersion: edge.harmonycloud.cn/v1alpha1
+kind: NodeMaintenance
+metadata:
+  name: nodemaintenance-sample
+spec:
+  nodeName:
+  proxy:
+    type:
+    endpoint:
+  services:
+    name:
+    type:
+    proxyPort:
+    frpServerIpAddress:
+    uniqueID:
+status:
+  services:
+    name:
+    status:
+    lastUpdate:
+  conditions:
+    name:
+    status:
+    timeStamp:
+  bindStatus:
+    phase:
+    nodeDeploymentReference:
+    timeStamp:

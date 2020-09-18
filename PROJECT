@@ -1,0 +1,7 @@
+domain: harmonycloud.cn
+repo: github.com/ttlv/nodemaintenances
+resources:
+- group: edge
+  kind: NodeMaintenance
+  version: v1alpha1
+version: "2"
