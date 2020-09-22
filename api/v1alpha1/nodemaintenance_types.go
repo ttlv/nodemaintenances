@@ -42,6 +42,9 @@ type NodeMaintenanceStatus struct {
 }
 
 // +kubebuilder:object:root=true
+// 新增
+// +kubebuilder:subresource:status
+// +kubebuilder:resource:scope=Cluster
 
 // NodeMaintenance is the Schema for the NodeMaintenances API
 type NodeMaintenance struct {
