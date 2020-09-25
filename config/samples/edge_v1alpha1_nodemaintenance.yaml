@@ -8,20 +8,20 @@ spec:
     type:
     endpoint:
   services:
-    name:
-    type:
-    proxyPort:
-    frpServerIpAddress:
-    uniqueID:
+    - name:
+      type:
+      proxyPort:
+      frpServerIpAddress:
+      uniqueID:
 status:
   services:
-    name:
-    status:
-    lastUpdate:
+    - name:
+      status:
+      lastUpdate:
   conditions:
-    name:
-    status:
-    timeStamp:
+    - name:
+      status:
+      timeStamp:
   bindStatus:
     phase:
     nodeDeploymentReference:

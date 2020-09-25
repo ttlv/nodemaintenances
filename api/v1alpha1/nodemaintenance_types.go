@@ -27,18 +27,18 @@ import (
 type NodeMaintenanceSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-	NodeName string       `json:"nodeName"`
-	Proxy    Proxy        `json:"proxy"`
-	Services SpecServices `json:"services"`
+	NodeName string         `json:"nodeName"`
+	Proxy    Proxy          `json:"proxy"`
+	Services []SpecServices `json:"services"`
 }
 
 // NodeMaintenanceStatus defines the observed state of NodeMaintenance
 type NodeMaintenanceStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-	Services   StatusServices `json:"services"`
-	Conditions Conditions     `json:"conditions"`
-	BindStatus BindStatus     `json:"bindStatus"`
+	Services   []StatusServices `json:"services"`
+	Conditions []Conditions     `json:"conditions"`
+	BindStatus BindStatus       `json:"bindStatus"`
 }
 
 // +kubebuilder:object:root=true
