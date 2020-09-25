@@ -14,10 +14,12 @@ spec:
     listKind: NodeMaintenanceList
     plural: nodemaintenances
     singular: nodemaintenance
-  scope: Namespaced
+  scope: Cluster
+  subresources:
+    status: {}
   validation:
     openAPIV3Schema:
-      description: NodeMaintenace is the Schema for the nodemaintenaces API
+      description: NodeMaintenance is the Schema for the NodeMaintenances API
       properties:
         apiVersion:
           description: 'APIVersion defines the versioned schema of this representation
@@ -32,7 +34,7 @@ spec:
         metadata:
           type: object
         spec:
-          description: NodeMaintenaceSpec defines the desired state of NodeMaintenace
+          description: NodeMaintenanceSpec defines the desired state of NodeMaintenance
           properties:
             nodeName:
               description: 'INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
@@ -49,31 +51,33 @@ spec:
               - type
               type: object
             services:
-              properties:
-                frpServerIpAddress:
-                  type: string
-                name:
-                  type: string
-                proxyPort:
-                  type: string
-                type:
-                  type: string
-                uniqueID:
-                  type: string
-              required:
-              - frpServerIpAddress
-              - name
-              - proxyPort
-              - type
-              - uniqueID
-              type: object
+              items:
+                properties:
+                  frpServerIpAddress:
+                    type: string
+                  name:
+                    type: string
+                  proxyPort:
+                    type: string
+                  type:
+                    type: string
+                  uniqueID:
+                    type: string
+                required:
+                - frpServerIpAddress
+                - name
+                - proxyPort
+                - type
+                - uniqueID
+                type: object
+              type: array
           required:
           - nodeName
           - proxy
           - services
           type: object
         status:
-          description: NodeMaintenaceStatus defines the observed state of NodeMaintenace
+          description: NodeMaintenanceStatus defines the observed state of NodeMaintenance
           properties:
             bindStatus:
               properties:
@@ -89,34 +93,38 @@ spec:
               - timeStamp
               type: object
             conditions:
-              properties:
-                name:
-                  type: string
-                status:
-                  type: boolean
-                timeStamp:
-                  type: string
-              required:
-              - name
-              - status
-              - timeStamp
-              type: object
+              items:
+                properties:
+                  name:
+                    type: string
+                  status:
+                    type: boolean
+                  timeStamp:
+                    type: string
+                required:
+                - name
+                - status
+                - timeStamp
+                type: object
+              type: array
             services:
               description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
                 of cluster Important: Run "make" to regenerate code after modifying
                 this file'
-              properties:
-                lastUpdate:
-                  type: string
-                name:
-                  type: string
-                status:
-                  type: string
-              required:
-              - lastUpdate
-              - name
-              - status
-              type: object
+              items:
+                properties:
+                  lastUpdate:
+                    type: string
+                  name:
+                    type: string
+                  status:
+                    type: string
+                required:
+                - lastUpdate
+                - name
+                - status
+                type: object
+              type: array
           required:
           - bindStatus
           - conditions
