@@ -75,6 +75,7 @@ type SpecServices struct {
 	ProxyPort          string `json:"proxyPort"`
 	FrpServerIpAddress string `json:"frpServerIpAddress"`
 	UniqueID           string `json:"uniqueID"`
+	MacAddress         string `json:"macAddress"`
 }
 
 type StatusServices struct {

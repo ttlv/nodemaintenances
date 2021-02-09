@@ -55,6 +55,8 @@ spec:
                 properties:
                   frpServerIpAddress:
                     type: string
+                  macAddress:
+                    type: string
                   name:
                     type: string
                   proxyPort:
@@ -65,6 +67,7 @@ spec:
                     type: string
                 required:
                 - frpServerIpAddress
+                - macAddress
                 - name
                 - proxyPort
                 - type
