@@ -52,6 +52,7 @@ type NodeMaintenance struct {
 
 	Spec       NodeMaintenanceSpec   `json:"spec,omitempty"`
 	MacAddress string                `json:"macAddress"`
+	HostName   string                `json:"hostName"`
 	Status     NodeMaintenanceStatus `json:"status,omitempty"`
 }
 
