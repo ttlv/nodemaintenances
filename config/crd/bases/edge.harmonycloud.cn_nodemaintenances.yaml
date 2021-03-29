@@ -31,6 +31,8 @@ spec:
             object represents. Servers may infer this from the endpoint the client
             submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
           type: string
+        macAddress:
+          type: string
         metadata:
           type: object
         spec:
@@ -55,8 +57,6 @@ spec:
                 properties:
                   frpServerIpAddress:
                     type: string
-                  macAddress:
-                    type: string
                   name:
                     type: string
                   proxyPort:
@@ -67,7 +67,6 @@ spec:
                     type: string
                 required:
                 - frpServerIpAddress
-                - macAddress
                 - name
                 - proxyPort
                 - type
@@ -133,6 +132,8 @@ spec:
           - conditions
           - services
           type: object
+      required:
+      - macAddress
       type: object
   version: v1alpha1
   versions:

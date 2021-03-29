@@ -51,8 +51,9 @@ type NodeMaintenance struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   NodeMaintenanceSpec   `json:"spec,omitempty"`
-	Status NodeMaintenanceStatus `json:"status,omitempty"`
+	Spec       NodeMaintenanceSpec   `json:"spec,omitempty"`
+	MacAddress string                `json:"macAddress"`
+	Status     NodeMaintenanceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
@@ -75,7 +76,6 @@ type SpecServices struct {
 	ProxyPort          string `json:"proxyPort"`
 	FrpServerIpAddress string `json:"frpServerIpAddress"`
 	UniqueID           string `json:"uniqueID"`
-	MacAddress         string `json:"macAddress"`
 }
 
 type StatusServices struct {
