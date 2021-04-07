@@ -27,9 +27,11 @@ import (
 type NodeMaintenanceSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
-	NodeName string         `json:"nodeName"`
-	Proxy    Proxy          `json:"proxy"`
-	Services []SpecServices `json:"services"`
+	NodeName   string         `json:"nodeName"`
+	Proxy      Proxy          `json:"proxy"`
+	Services   []SpecServices `json:"services"`
+	MacAddress string         `json:"macAddress"`
+	HostName   string         `json:"hostName"`
 }
 
 // NodeMaintenanceStatus defines the observed state of NodeMaintenance
@@ -50,10 +52,8 @@ type NodeMaintenance struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec       NodeMaintenanceSpec   `json:"spec,omitempty"`
-	MacAddress string                `json:"macAddress"`
-	HostName   string                `json:"hostName"`
-	Status     NodeMaintenanceStatus `json:"status,omitempty"`
+	Spec   NodeMaintenanceSpec   `json:"spec,omitempty"`
+	Status NodeMaintenanceStatus `json:"status,omitempty"`
 }
 
 // +kubebuilder:object:root=true
